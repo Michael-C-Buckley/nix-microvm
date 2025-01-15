@@ -27,15 +27,16 @@
         "spectrum": "spectrum"
       },
       "locked": {
-        "lastModified": 1736637237,
-        "narHash": "sha256-kZELEfQDEbCljZUpmIw0G0tNNdcJlnLvc6bwKQ++Okw=",
-        "owner": "astro",
+        "lastModified": 1736893131,
+        "narHash": "sha256-78HqTUmmQStz875qy7YaCZSYZQCBZKsMhcZNLpTTiog=",
+        "owner": "Michael-C-Buckley",
         "repo": "microvm.nix",
-        "rev": "6f7e4a7bfcdce1c703f9cb89ae9d634167b720b8",
+        "rev": "61df73421ac9728dec8ed0447bdf19344848c499",
         "type": "github"
       },
       "original": {
-        "owner": "astro",
+        "owner": "Michael-C-Buckley",
+        "ref": "fix-kernelAtLeast",
         "repo": "microvm.nix",
         "type": "github"
       }
@@ -43,8 +44,8 @@
     "nixpkgs": {
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-JO+lFN2HsCwSLMUWXHeOad6QUxOuwe9UOAF/iSl1J4I=",
-        "path": "/nix/store/fz4h8yz3qr83p6cfhisgj02knjqg6nxs-source",
+        "narHash": "sha256-vH5mXxEvZeoGNkqKoCluhTGfoeXCZ1seYhC2pbMN0sg=",
+        "path": "/nix/store/zd5dgszslv09jzybcpf25gpl12s6r2d9-source",
         "type": "path"
       },
       "original": {
