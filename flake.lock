@@ -27,16 +27,15 @@
         "spectrum": "spectrum"
       },
       "locked": {
-        "lastModified": 1736893131,
-        "narHash": "sha256-78HqTUmmQStz875qy7YaCZSYZQCBZKsMhcZNLpTTiog=",
-        "owner": "Michael-C-Buckley",
+        "lastModified": 1736905611,
+        "narHash": "sha256-eW6SfZRaOnOybBzhvEzu3iRL8IhwE0ETxUpnkErlqkE=",
+        "owner": "astro",
         "repo": "microvm.nix",
-        "rev": "61df73421ac9728dec8ed0447bdf19344848c499",
+        "rev": "a18d7ba1bb7fd4841191044ca7a7f895ef2adf3b",
         "type": "github"
       },
       "original": {
-        "owner": "Michael-C-Buckley",
-        "ref": "fix-kernelAtLeast",
+        "owner": "astro",
         "repo": "microvm.nix",
         "type": "github"
       }

@@ -9,7 +9,7 @@
   inputs = {
     # nixpkgs-unstable-small = "";
     microvm = {
-      url = "github:Michael-C-Buckley/microvm.nix?ref=fix-kernelAtLeast";
+      url = "github:astro/microvm.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -20,7 +20,6 @@
     in {
       packages.${system} = {
         default = self.packages.${system}.m1;
-        runM2 = self.packages.${system}.m2;
         m1 = self.nixosConfigurations.m1.config.microvm.declaredRunner;
         m2 = self.nixosConfigurations.m2.config.microvm.declaredRunner;
       };
@@ -40,6 +39,7 @@
           inherit system;
           modules = [
             microvm.nixosModules.microvm
+            ./config
             ./machines/m2.nix
           ];
         };
