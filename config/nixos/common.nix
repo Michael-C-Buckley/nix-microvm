@@ -1,6 +1,9 @@
+# A common config base to be shared among all project VMs
+
 { pkgs, ... }: {
   nixpkgs.config.allowUnfree =  true;
   environment.enableAllTerminfo = true;
+  system.stateVersion = "25.05";
 
   environment.systemPackages = with pkgs; [
     microfetch
@@ -14,7 +17,6 @@
       experimental-features = [
         "nix-command"
         "flakes"
-        "auto-allocate-uids"
       ];
     };
   };

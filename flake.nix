@@ -14,6 +14,15 @@
   outputs = { self, nixpkgs, microvm }:
     let
       system = "x86_64-linux";
+
+      mkVM = modules: nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit microvm; };
+        inherit system;
+        modules = [
+          microvm.nixosModules.microvm
+          ./config/nixos/common.nix
+        ] ++ modules;
+      };
     in {
       packages.${system} = {
         default = self.packages.${system}.m1;
@@ -22,24 +31,8 @@
       };
 
       nixosConfigurations = {
-        m1 = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit microvm; };
-          inherit system;
-          modules = [
-            microvm.nixosModules.microvm
-            ./config
-            ./machines/m1.nix
-          ];
-        };
-        m2 = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit microvm; };
-          inherit system;
-          modules = [
-            microvm.nixosModules.microvm
-            ./config
-            ./machines/m2.nix
-          ];
-        };
+        m1 = mkVM [./machines/m1.nix ./config/nixos/smallstep.nix];
+        m2 = mkVM [./machines/m2.nix];
       };
     };
 }
