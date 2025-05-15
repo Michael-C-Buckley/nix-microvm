@@ -7,11 +7,8 @@
   };
 
   inputs = {
-    # nixpkgs-unstable-small = "";
-    microvm = {
-      url = "github:astro/microvm.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs.follows = "microvm/nixpkgs";
+    microvm.url = "github:astro/microvm.nix";
   };
 
   outputs = { self, nixpkgs, microvm }:
