@@ -2,20 +2,28 @@
   description = "MicroVM Testing";
 
   nixConfig = {
-    extra-substituters = ["https://microvm.cachix.org"];
-    extra-trusted-public-keys = ["microvm.cachix.org-1:oXnBc6hRE3eX5rSYdRyMYXnfzcCxC7yKPTbZXALsqys="];
+    extra-substituters = [
+      "https://microvm.cachix.org"
+      "https://cache.thalheim.io" # sops-nix
+    ];
+    extra-trusted-public-keys = [
+      "microvm.cachix.org-1:oXnBc6hRE3eX5rSYdRyMYXnfzcCxC7yKPTbZXALsqys="
+      "cache.thalheim.io-1:R7msbosLEZKrxk/lKxf9BTjOOH7Ax3H0Qj0/6wiHOgc="
+    ];
   };
 
   inputs = {
     nixpkgs.follows = "microvm/nixpkgs";
     microvm.url = "github:astro/microvm.nix";
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs = {
     self,
     nixpkgs,
     microvm,
-  }: let
+    ...
+  } @ inputs: let
     systems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
 
     forAllSystems = nixpkgs.lib.genAttrs systems;
@@ -29,7 +37,7 @@
 
     mkVM = modules:
       nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit microvm;};
+        specialArgs = {inherit inputs microvm;};
         inherit system;
         modules =
           [
@@ -46,6 +54,7 @@
         packages = with pkgs; [
           microvm.packages.${system}.microvm
           alejandra
+          sops
         ];
       };
     });

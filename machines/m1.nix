@@ -5,6 +5,7 @@
   imports = [
     ../templates
     ../templates/9p.nix
+    ../templates/secrets.nix
   ];
   networking.hostName = "m1";
   microvm = {
