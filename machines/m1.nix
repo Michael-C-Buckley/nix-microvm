@@ -1,7 +1,5 @@
 # QEMU based default example host
-{ ... }:
-
-{
+{...}: {
   imports = [
     ../templates
     ../templates/9p.nix
@@ -16,10 +14,12 @@
         mac = "02:00:00:00:00:01";
       }
     ];
-    volumes = [ {
-      mountPoint = "/var";
-      image = "m1.img";
-      size = 256;
-    } ];
+    volumes = [
+      {
+        mountPoint = "/var";
+        image = "m1.img";
+        size = 256;
+      }
+    ];
   };
 }

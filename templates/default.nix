@@ -1,8 +1,6 @@
 # Default QEMU Template
 # QEMU based default example host
-{ lib, ... }:
-
-{
+{lib, ...}: {
   users.users.root.password = lib.mkDefault "";
   microvm = {
     hypervisor = "qemu";
