@@ -21,91 +21,75 @@
     "microvm": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "spectrum": "spectrum"
       },
       "locked": {
-        "lastModified": 1747016581,
-        "narHash": "sha256-iQrEuBs23Cd+bSfcY85GLykHP0vmGrkVfMwUlzvqMQQ=",
-        "owner": "astro",
-        "repo": "microvm.nix",
-        "rev": "5aff25e6e861e7d96ce10452ca976c16d073cf16",
-        "type": "github"
+        "lastModified": 1752843889,
+        "narHash": "sha256-WSvdkO80w6fwtKAj3ePTnl9zD8+0i12fd7hL9Enj9Gg=",
+        "ref": "refs/heads/main",
+        "rev": "bde4522ae5eb358c05d1dfd6b23abaa9988be3ff",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/astro/microvm.nix"
       },
       "original": {
-        "owner": "astro",
-        "repo": "microvm.nix",
-        "type": "github"
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/astro/microvm.nix"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1746904237,
-        "narHash": "sha256-3e+AVBczosP5dCLQmMoMEogM57gmZ2qrVSrmq9aResQ=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "d89fc19e405cb2d55ce7cc114356846a0ee5e956",
-        "type": "github"
+        "lastModified": 1752820569,
+        "narHash": "sha256-okomYyezDlua8/ssPHEdE2/gC1r+MElosWlZQuFrIdQ=",
+        "rev": "6e987485eb2c77e5dcc5af4e3c70843711ef9251",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre831064.6e987485eb2c/nixexprs.tar.xz"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1744868846,
-        "narHash": "sha256-5RJTdUHDmj12Qsv7XOhuospjAjATNiTMElplWnJE9Hs=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "ebe4301cbd8f81c4f8d3244b3632338bbeb6d49c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
+        "type": "tarball",
+        "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
       }
     },
     "root": {
       "inputs": {
         "microvm": "microvm",
-        "nixpkgs": [
-          "microvm",
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs",
         "sops-nix": "sops-nix"
       }
     },
     "sops-nix": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
-        "lastModified": 1746485181,
-        "narHash": "sha256-PxrrSFLaC7YuItShxmYbMgSuFFuwxBB+qsl9BZUnRvg=",
-        "owner": "Mic92",
-        "repo": "sops-nix",
-        "rev": "e93ee1d900ad264d65e9701a5c6f895683433386",
-        "type": "github"
+        "lastModified": 1752544651,
+        "narHash": "sha256-GllP7cmQu7zLZTs9z0J2gIL42IZHa9CBEXwBY9szT0U=",
+        "ref": "refs/heads/master",
+        "rev": "2c8def626f54708a9c38a5861866660395bb3461",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/Mic92/sops-nix"
       },
       "original": {
-        "owner": "Mic92",
-        "repo": "sops-nix",
-        "type": "github"
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/Mic92/sops-nix"
       }
     },
     "spectrum": {
       "flake": false,
       "locked": {
-        "lastModified": 1746869549,
-        "narHash": "sha256-BKZ/yZO/qeLKh9YqVkKB6wJiDQJAZNN5rk5NsMImsWs=",
+        "lastModified": 1751265943,
+        "narHash": "sha256-XoHSo6GEElzRUOYAEg/jlh5c8TDsyDESFIux3nU/NMc=",
         "ref": "refs/heads/main",
-        "rev": "d927e78530892ec8ed389e8fae5f38abee00ad87",
-        "revCount": 862,
+        "rev": "37c8663fab86fdb202fece339ef7ac7177ffc201",
+        "revCount": 904,
         "type": "git",
         "url": "https://spectrum-os.org/git/spectrum"
       },

@@ -13,9 +13,15 @@
   };
 
   inputs = {
-    nixpkgs.follows = "microvm/nixpkgs";
-    microvm.url = "github:astro/microvm.nix";
-    sops-nix.url = "github:Mic92/sops-nix";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+    microvm = {
+      url = "git+https://github.com/astro/microvm.nix?shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    sops-nix = {
+      url = "git+https://github.com/Mic92/sops-nix?shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
