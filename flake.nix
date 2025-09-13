@@ -64,5 +64,9 @@
       m1 = mkVM [./machines/m1.nix];
       m2 = mkVM [./machines/m2.nix];
     };
+
+                        hydraJobs = {
+                                inherit (self) packages devShells;
+                        };
   };
 }
