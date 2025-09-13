@@ -1,17 +1,6 @@
 {
   description = "MicroVM Testing";
 
-  nixConfig = {
-    extra-substituters = [
-      "https://microvm.cachix.org"
-      "https://cache.thalheim.io" # sops-nix
-    ];
-    extra-trusted-public-keys = [
-      "microvm.cachix.org-1:oXnBc6hRE3eX5rSYdRyMYXnfzcCxC7yKPTbZXALsqys="
-      "cache.thalheim.io-1:R7msbosLEZKrxk/lKxf9BTjOOH7Ax3H0Qj0/6wiHOgc="
-    ];
-  };
-
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
     microvm = {
