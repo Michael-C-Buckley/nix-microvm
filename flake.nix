@@ -19,7 +19,10 @@
     microvm,
     ...
   } @ inputs: let
-    systems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
+    # I only support these systems in my flows
+    systems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin"];
+
+    getRunner = host: self.nixosConfigurations.${host}.config.microvm.declaredRunner;
 
     forAllSystems = nixpkgs.lib.genAttrs systems;
     importPkgs = system:
@@ -56,17 +59,27 @@
 
     packages = forAllSystems (system: {
       default = self.packages.${system}.m1;
-      m1 = self.nixosConfigurations.m1.config.microvm.declaredRunner;
-      m2 = self.nixosConfigurations.m2.config.microvm.declaredRunner;
+      m1 = getRunner "m1";
+      m2 = getRunner "m2";
+      vault = getRunner "vault";
+      vault-dev = getRunner "vault-dev";
     });
 
     nixosConfigurations = {
       m1 = mkVM [./machines/m1.nix];
       m2 = mkVM [./machines/m2.nix];
+      vault = mkVM [
+        ./machines/vault.nix
+        ./config/nixos/vault/prod.nix
+      ];
+      vault-dev = mkVM [
+        ./machines/vault.nix
+        ./config/nixos/vault/dev.nix
+      ];
     };
 
-                        hydraJobs = {
-                                inherit (self) packages devShells;
-                        };
+    hydraJobs = {
+      inherit (self) packages devShells;
+    };
   };
 }
