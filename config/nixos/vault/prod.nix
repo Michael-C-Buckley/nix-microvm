@@ -12,7 +12,7 @@ _: {
       path = "/vault"
       node_id = "node1"
     '';
-    
+
     extraConfig = ''
       ui = true
 
