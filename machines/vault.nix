@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   networking.hostName = "vault";
-  users.users.root.password = "password";
+  
   microvm = {
     # CrosVM is extremely quick and lightwight
     hypervisor = "crosvm";

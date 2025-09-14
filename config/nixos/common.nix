@@ -5,6 +5,8 @@
   # This is just for convenience sake
   environment.enableAllTerminfo = true;
 
+  users.users.root.password = "password";
+
   system.stateVersion = "25.11";
 
   environment.systemPackages = with pkgs; [
