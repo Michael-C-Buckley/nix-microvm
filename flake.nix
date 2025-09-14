@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+    flake-parts.url = "github:hercules-ci/flake-parts";
     microvm = {
       url = "git+https://github.com/astro/microvm.nix?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,69 +18,26 @@
     self,
     nixpkgs,
     microvm,
+    flake-parts,
     ...
   } @ inputs: let
-    # I only support these systems in my flows
-    systems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin"];
+    # Currently only supported on Linux systems
+    systems = ["x86_64-linux" "aarch64-linux"];
+  in
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      inherit systems;
 
-    getRunner = host: self.nixosConfigurations.${host}.config.microvm.declaredRunner;
-
-    forAllSystems = nixpkgs.lib.genAttrs systems;
-    importPkgs = system:
-      import nixpkgs {
-        inherit system;
-        config = {allowUnfree = true;};
-      };
-
-    system = "x86_64-linux";
-
-    mkVM = modules:
-      nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs microvm;};
-        inherit system;
-        modules =
-          [
-            microvm.nixosModules.microvm
-            ./config/nixos/common.nix
-          ]
-          ++ modules;
-      };
-  in {
-    devShells = forAllSystems (system: let
-      pkgs = importPkgs system;
-    in {
-      default = pkgs.mkShell {
-        packages = with pkgs; [
-          microvm.packages.${system}.microvm
-          alejandra
-          sops
-        ];
-      };
-    });
-
-    packages = forAllSystems (system: {
-      default = self.packages.${system}.m1;
-      m1 = getRunner "m1";
-      m2 = getRunner "m2";
-      vault = getRunner "vault";
-      vault-dev = getRunner "vault-dev";
-    });
-
-    nixosConfigurations = {
-      m1 = mkVM [./machines/m1.nix];
-      m2 = mkVM [./machines/m2.nix];
-      vault = mkVM [
-        ./machines/vault.nix
-        ./config/nixos/vault/prod.nix
+      # Specific outputs are defined elsewhere, aligned by their name
+      imports = [
+        ./outputs/devShells.nix
+        # The NixOS portion of the VM configuration
+        ./outputs/nixosConfigurations.nix
+        # The final piece, since the VM is collected as a package output
+        ./outputs/packages.nix
       ];
-      vault-dev = mkVM [
-        ./machines/vault.nix
-        ./config/nixos/vault/dev.nix
-      ];
-    };
 
-    hydraJobs = {
-      inherit (self) packages devShells;
+      flake.hydraJobs = {
+        inherit (self) packages devShells;
+      };
     };
-  };
 }
