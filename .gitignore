@@ -1,3 +1,7 @@
 # Ignore instance VM drives
 *.img
 result
+
+# Direnv
+.direnv
+.envrc
