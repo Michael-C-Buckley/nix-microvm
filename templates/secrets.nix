@@ -8,8 +8,7 @@
     {
       proto = "9p";
       tag = "ssh";
-      # this is the absolute path of my project directory
-      source = "/home/michael/projects/nix/microvm/secrets/keys";
+      source = "${inputs.self}/secrets/keys";
       mountPoint = "/etc/age";
     }
   ];
