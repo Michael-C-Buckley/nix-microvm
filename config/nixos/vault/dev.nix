@@ -1,4 +1,4 @@
-_: {
+{
   services.vault = {
     enable = true;
     dev = true;

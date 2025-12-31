@@ -1,4 +1,4 @@
-_: {
+{
   # Currently this is a testing edition and needs production changes
   services.vault = {
     enable = true;

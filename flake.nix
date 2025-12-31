@@ -16,8 +16,6 @@
 
   outputs = {
     self,
-    nixpkgs,
-    microvm,
     flake-parts,
     ...
   } @ inputs: let

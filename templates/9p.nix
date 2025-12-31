@@ -1,5 +1,5 @@
 # QEMU based default example host
-{...}: {
+{
   microvm = {
     shares = [
       {

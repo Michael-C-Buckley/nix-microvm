@@ -1,5 +1,5 @@
 # QEMU based default example host
-{...}: {
+{
   imports = [
     ../templates
     ../templates/9p.nix
