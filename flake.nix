@@ -5,11 +5,11 @@
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
     flake-parts.url = "github:hercules-ci/flake-parts";
     microvm = {
-      url = "git+https://github.com/astro/microvm.nix?shallow=1";
+      url = "github:microvm-nix/microvm.nix/pull/502/head"; # PR branch solves breakage on current nixos-unstable
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {
-      url = "git+https://github.com/Mic92/sops-nix?shallow=1";
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

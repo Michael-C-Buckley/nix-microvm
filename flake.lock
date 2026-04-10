@@ -26,18 +26,18 @@
         "spectrum": "spectrum"
       },
       "locked": {
-        "lastModified": 1775329298,
-        "narHash": "sha256-xmntQolopr1WwBO5rAC+SKyON+ritVQLUHZdvpjUM90=",
-        "ref": "refs/heads/main",
-        "rev": "4a9ff5adcefd23e68de76f33ebc7b3909e06c09b",
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/astro/microvm.nix"
+        "lastModified": 1775723509,
+        "narHash": "sha256-ddlxfsjkierAK5CTQ6fXlUs4MZsyZb3qM4mO9+Koei0=",
+        "owner": "microvm-nix",
+        "repo": "microvm.nix",
+        "rev": "0a19985c9371e3b9dc0ba0a43b0c57c39cd4397f",
+        "type": "github"
       },
       "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/astro/microvm.nix"
+        "owner": "microvm-nix",
+        "ref": "pull/502/head",
+        "repo": "microvm.nix",
+        "type": "github"
       }
     },
     "nixpkgs": {
