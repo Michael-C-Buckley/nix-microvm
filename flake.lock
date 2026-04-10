@@ -85,16 +85,15 @@
       "locked": {
         "lastModified": 1775682595,
         "narHash": "sha256-0E9PohY/VuESLq0LR4doaH7hTag513sDDW5n5qmHd1Q=",
-        "ref": "refs/heads/master",
+        "owner": "Mic92",
+        "repo": "sops-nix",
         "rev": "d2e8438d5886e92bc5e7c40c035ab6cae0c41f76",
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/Mic92/sops-nix"
+        "type": "github"
       },
       "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/Mic92/sops-nix"
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "type": "github"
       }
     },
     "spectrum": {

@@ -5,19 +5,19 @@
     ../templates/9p.nix
     ../templates/secrets.nix
   ];
-  networking.hostName = "m1";
+  networking.hostName = "t1";
   microvm = {
     interfaces = [
       {
         type = "tap";
-        id = "vm-m1";
+        id = "vm-t1";
         mac = "02:00:00:00:00:01";
       }
     ];
     volumes = [
       {
         mountPoint = "/var";
-        image = "m1.img";
+        image = "t1.img";
         size = 256;
       }
     ];

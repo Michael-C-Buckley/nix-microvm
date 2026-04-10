@@ -3,13 +3,13 @@
   inputs,
   ...
 }: let
-  inherit (builtins) attrNames map listToAttrs;
+  inherit (builtins) attrNames listToAttrs;
   inherit (inputs) nixpkgs microvm;
 
   # These hosts are the base configs that will have each support system configured
   hosts = {
-    m1 = [../machines/m1.nix];
-    m2 = [../machines/m2.nix];
+    t1 = [../machines/t1.nix];
+    t2 = [../machines/t2.nix];
     vault = [
       ../machines/vault.nix
       ../config/nixos/vault/prod.nix

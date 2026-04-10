@@ -1,8 +1,7 @@
 # Firecracker Example
 #
 {
-  networking.hostName = "m2";
-  users.users.root.password = "";
+  networking.hostName = "t2";
   microvm = {
     hypervisor = "cloud-hypervisor";
     socket = "control.socket";
@@ -12,7 +11,7 @@
     volumes = [
       {
         mountPoint = "/var";
-        image = "m2.img";
+        image = "t2.img";
         size = 256;
       }
     ];
@@ -22,7 +21,7 @@
     interfaces = [
       {
         type = "tap";
-        id = "vm-m2";
+        id = "vm-t2";
         mac = "02:00:00:00:00:02";
       }
     ];
