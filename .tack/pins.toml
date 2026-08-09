@@ -1,0 +1,14 @@
+[shorturls]
+gh = "github:{path}"
+
+[all_follow]
+nixpkgs = "nixpkgs"
+
+[inputs.nixpkgs]
+url = "gh:nixos/nixpkgs/nixos-unstable"
+
+[inputs.microvm]
+url = "gh:microvm-nix/microvm.nix"
+
+[inputs.sops-nix]
+url = "gh:mic92/sops-nix"

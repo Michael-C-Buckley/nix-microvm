@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{self, inputs, ...}: {
   imports = [inputs.sops-nix.nixosModules.sops];
 
   # To generate host keys (which appear to remain static)
@@ -8,7 +8,7 @@
     {
       proto = "9p";
       tag = "ssh";
-      source = "${inputs.self}/secrets/keys";
+      source = "${self}/secrets/keys";
       mountPoint = "/etc/age";
     }
   ];

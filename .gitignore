@@ -1,6 +1,7 @@
 # Ignore instance VM drives
 *.img
 result
+control*
 
 # Direnv
 .direnv

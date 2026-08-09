@@ -1,0 +1,26 @@
+{
+  "microvm": {
+    "type": "github",
+    "owner": "microvm-nix",
+    "repo": "microvm.nix",
+    "rev": "71beea0076cd46dafcee97a5a2e7d00cbba5bd2f",
+    "narHash": "sha256-4UFJOVGpaYtHW5yasSv80MaJxTBYdk2zyf3jhKtt0wA=",
+    "lastModified": 1786300091
+  },
+  "nixpkgs": {
+    "type": "github",
+    "owner": "nixos",
+    "repo": "nixpkgs",
+    "rev": "f13ff45afd1bb73e640eaa08a7066dbed07e3238",
+    "narHash": "sha256-zDSUbpoeo/9ZmD2+wXnzxoo1+uhL8vxc0b8yuYMKYq0=",
+    "lastModified": 1786106723
+  },
+  "sops-nix": {
+    "type": "github",
+    "owner": "mic92",
+    "repo": "sops-nix",
+    "rev": "f1406619a3884cd5c47992a70b8b35c9c0fcb4c9",
+    "narHash": "sha256-aCWC8ngycU7OdJrU2+Je3qf+1a2ykuBvpPhZT/9tXMc=",
+    "lastModified": 1783174389
+  }
+}
